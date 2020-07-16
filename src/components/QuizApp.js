@@ -49,17 +49,17 @@ class QuizApp extends Component {
 
       e.target.classList.add('right');
 
-      userAnswers[currentStep] = {
-        tries: tries + 1
-      };
+      // userAnswers[currentStep] = {
+      //   tries: tries + 1
+      // };
 
       this.setState({
         userAnswers: userAnswers
       });
 
-      setTimeout(() => this.showModal(tries), 750);
+      // setTimeout(() => this.showModal(tries), 750);
 
-      setTimeout(this.nextStep, 2750);
+      setTimeout(this.nextStep, 100);
     }
 
     else if (e.target.nodeName === 'LI') {
@@ -73,6 +73,9 @@ class QuizApp extends Component {
       this.setState({
         userAnswers: userAnswers
       });
+
+      setTimeout(this.nextStep, 100)
+
     }
   };
 
@@ -135,10 +138,8 @@ class QuizApp extends Component {
 
   updateScore(tries, score) {
     switch (tries) {
-      case 1: return score + 10;
-      case 2: return score + 5;
-      case 3: return score + 2;
-      default: return score + 1;
+      case 0: return score + 1;
+      default: return score;
     }
   }
 
@@ -157,6 +158,7 @@ class QuizApp extends Component {
           score={score}
           restartQuiz={this.restartQuiz}
           userAnswers={userAnswers}
+          winner={totalQuestions === score}
         />
       );
     } else return (
