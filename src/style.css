@@ -89,16 +89,40 @@ code {
 }
 
 .question-answers {
+  text-align: center;
   margin-top: .75em;
   padding-left: 1.2em;
+}
+
+.question-title {
+  text-align: center;
 }
 
 .question-answer {
   list-style-type: lower-alpha;
   cursor: pointer;
   padding: .3em;
-  margin-bottom: .3em;
   border: 5px solid transparent;
+  display: inline-block;
+  font-size: 1em;
+  text-transform: lowercase;
+  border-width: 0.25em;
+  border-style: solid;
+  border-color: primaryColor;
+  border-radius: 2px;
+  padding: 1em;
+  transition: background-color 0.2s, color 0.2s;
+  color: lightgrey;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  min-width: 8em;
+  margin: 1em;
+  background-color: black;
+}
+
+.question-answer:hover {
+    background-color: greenyellow;
+    color: black;
 }
 
 .question-answer span {

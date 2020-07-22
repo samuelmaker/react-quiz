@@ -1,7 +1,7 @@
 {
   "name": "react-quiz",
   "version": "1.10.0",
-  "description": "A JavaScript quiz built with React.",
+  "description": "A wavy again built with React.",
   "main": "main.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --config webpack.config.dev.js --open",

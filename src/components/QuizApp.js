@@ -43,7 +43,9 @@ class QuizApp extends Component {
     const currentStep = step - 1;
     const tries = userAnswers[currentStep].tries;
 
-    if (isCorrect && e.target.nodeName === 'LI') {
+    console.log(e.target.nodeName)
+
+    if (isCorrect && e.target.nodeName === 'BUTTON') {
       // Prevent other answers from being clicked after correct answer is clicked
       e.target.parentNode.style.pointerEvents = 'none';
 
@@ -62,7 +64,7 @@ class QuizApp extends Component {
       setTimeout(this.nextStep, 100);
     }
 
-    else if (e.target.nodeName === 'LI') {
+    else if (e.target.nodeName === 'BUTTON') {
       e.target.style.pointerEvents = 'none';
       e.target.classList.add('wrong');
 
