@@ -16,6 +16,7 @@ class QuizApp extends Component {
     totalQuestions: PropTypes.number.isRequired
   };
 
+  // modal can be reintroduced by adding logic to set modal.state to show
   getInitialState(totalQuestions) {
     totalQuestions = Math.min(totalQuestions, QUESTION_DATA.length);
     const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(0, totalQuestions);
@@ -45,33 +46,21 @@ class QuizApp extends Component {
     const currentStep = step - 1;
     const tries = userAnswers[currentStep].tries;
 
-    console.log(e.target.nodeName)
-
     if (isCorrect && e.target.nodeName === 'BUTTON') {
       // Prevent other answers from being clicked after correct answer is clicked
       e.target.parentNode.style.pointerEvents = 'none';
-
       e.target.classList.add('right');
-      this.setState({
-        userAnswers: userAnswers
-      });
-
-
       setTimeout(this.nextStep, 100);
     }
-
     else if (e.target.nodeName === 'BUTTON') {
       e.target.style.pointerEvents = 'none';
       e.target.classList.add('wrong');
-
       userAnswers[currentStep] = {
         tries: tries + 1
       };
-
       this.setState({
         userAnswers: userAnswers
       });
-
       setTimeout(this.nextStep, 100)
 
     }
@@ -81,41 +70,6 @@ class QuizApp extends Component {
     if (e.keyCode === 13) {
       this.handleAnswerClick(index)(e);
     }
-  };
-
-  showModal = (tries) => {
-    let praise;
-    let points;
-
-    switch (tries) {
-      case 0: {
-        praise = '1st Try!';
-        points = '+10';
-        break;
-      }
-      case 1: {
-        praise = '2nd Try!';
-        points = '+5';
-        break;
-      }
-      case 2: {
-        praise = 'Correct!';
-        points = '+2';
-        break;
-      }
-      default: {
-        praise = 'Correct!';
-        points = '+1';
-      }
-    }
-
-    this.setState({
-      modal: {
-        state: 'show',
-        praise,
-        points
-      }
-    });
   };
 
   nextStep = () => {
