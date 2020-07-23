@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Quiz from './Quiz';
 import Modal from './Modal';
 import Results from './Results';
+import Welcome from './Welcome';
 import shuffleQuestions from '../helpers/shuffleQuestions';
 import QUESTION_DATA from '../data/quiz-data';
 
@@ -20,6 +21,7 @@ class QuizApp extends Component {
     const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(0, totalQuestions);
 
     return {
+      welcomePage: true,
       questions: QUESTIONS,
       totalQuestions: totalQuestions,
       userAnswers: QUESTIONS.map(() => {
@@ -50,16 +52,10 @@ class QuizApp extends Component {
       e.target.parentNode.style.pointerEvents = 'none';
 
       e.target.classList.add('right');
-
-      // userAnswers[currentStep] = {
-      //   tries: tries + 1
-      // };
-
       this.setState({
         userAnswers: userAnswers
       });
 
-      // setTimeout(() => this.showModal(tries), 750);
 
       setTimeout(this.nextStep, 100);
     }
@@ -145,6 +141,12 @@ class QuizApp extends Component {
     }
   }
 
+  initiateQuiz = () => {
+    this.setState({
+      welcomePage: false
+    });
+  };
+
   restartQuiz = () => {
     this.setState({
       ...this.getInitialState(this.props.totalQuestions)
@@ -152,8 +154,15 @@ class QuizApp extends Component {
   };
 
   render() {
-    const { step, questions, userAnswers, totalQuestions, score, modal } = this.state;
+    const { step, questions, userAnswers, totalQuestions, score, modal, welcomePage } = this.state;
 
+    if (welcomePage) {
+      return (
+        <Welcome
+          startQuiz={this.initiateQuiz}
+        />
+      ); 
+    }
     if (step >= totalQuestions + 1) {
       return (
         <Results

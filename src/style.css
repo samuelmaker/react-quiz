@@ -168,6 +168,38 @@ code {
   display: block;
 }
 
+.welcome-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  font-size: 1.75em;
+  line-height: 1.75em;
+}
+
+.welcome-container a {
+  position: relative;
+  padding: 15px 30px;
+  margin-top: 30px;
+  border: 3px solid #111;
+  background: none;
+  cursor: pointer;
+  font-size: .75em;
+  transition: background .2s;
+}
+
+.welcome-container a:hover {
+  background: rgba(255,255,255,.1);
+}
+
+.welcome-container a:active {
+  background: rgba(255,255,255,.5);
+  top: -2px;
+}
+
 .results-container {
   width: 100%;
   margin: 0 auto;
@@ -201,7 +233,7 @@ code {
   background: rgba(255,255,255,.1);
 }
 
-.results-container a:active, {
+.results-container a:active {
   background: rgba(255,255,255,.5);
   top: -2px;
 }
