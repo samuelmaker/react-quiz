@@ -3,14 +3,19 @@ import PropTypes from "prop-types";
 
 const Welcome = ({ startQuiz }) => {
   return (
-    <div className="welcome-container">
-      <div className="results-total"></div>
-      <a onClick={startQuiz}>
+    <div className="welcomeParent">
+      <div id="welcome-logo">
+        {" "}
         <img
           src="https://everpress.imgix.net/img/logo/original/5b9d46a117c02-5b9d46a117dfd9.86429877.png"
-          width="300px"
+          width="130px"
         />
-      </a>
+      </div>
+
+      <div className="ocean">
+        <div className="wave"></div>
+        <div className="wave"></div>
+      </div>
     </div>
   );
 };
