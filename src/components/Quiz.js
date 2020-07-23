@@ -11,7 +11,7 @@ const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handl
           <div className="question-number">{step}</div>
           <div className="description">of <span>{totalQuestions}</span></div>
         </div>
-        <h1>wavy again</h1>
+        <img src="https://everpress.imgix.net/img/logo/original/5b9d46a117c02-5b9d46a117dfd9.86429877.png" width="130px" />
         <div className="score-container">
           <h2>Score</h2>
           <div className="score">{score}</div>

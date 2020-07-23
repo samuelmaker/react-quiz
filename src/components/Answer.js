@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Answer = ({ answer, handleAnswerClick, handleEnterPress }) => {
+const Answer = ({ first, answer, handleAnswerClick, handleEnterPress }) => {
   return (
     <li
       tabIndex="0"
@@ -9,12 +9,13 @@ const Answer = ({ answer, handleAnswerClick, handleEnterPress }) => {
       onKeyDown={handleEnterPress}
       style={{ display: "inline-block" }}
     >
-      <button className="question-answer">{answer}</button>
+      <button id={first && 'firstAnswer'} className="question-answer">{answer}</button>
     </li>
   );
 };
 
 Answer.propTypes = {
+  first: PropTypes.bool.isRequired,
   answer: PropTypes.element.isRequired,
   handleAnswerClick: PropTypes.func.isRequired,
   handleEnterPress: PropTypes.func.isRequired
