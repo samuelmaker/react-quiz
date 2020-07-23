@@ -10,7 +10,7 @@ body {
   width: 100%;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 9px;
-  background: rgb(249,219,61);
+  background:white;
   color: #222;
   margin: 0;
   padding: 0;
@@ -80,8 +80,26 @@ code {
 }
 
 .questions {
-  width: 85%;
-  margin: 35px auto 0;
+  margin: auto;
+  height: 60vh;
+  width: 100vw;
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
 }
 
 .question {
@@ -121,8 +139,8 @@ code {
 }
 
 .question-answer:hover {
-    background-color: greenyellow;
-    color: black;
+    background-color: black;
+    color: white;
 }
 
 .question-answer span {
